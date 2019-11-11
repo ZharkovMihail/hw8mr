@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  server:
+    build: .
+    ports:
+    - "5000:5000"
+    depends_on:
+      - rediska
+      - mongo
+
+  rediska:
+    image: redis
+    ports:
+      - "7000:6379"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
